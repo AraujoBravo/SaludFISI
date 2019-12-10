@@ -37,7 +37,7 @@ public class DBAccess implements Serializable {
 
         try {
             Class.forName("com.mysql.jdbc.Driver").newInstance();
-            cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/seguridadhigienefisi", "root", "");
+            cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/seguridadhigienefisi", "root", "root");
         } catch (ClassNotFoundException | IllegalAccessException | InstantiationException | SQLException e) {
             System.out.println(e);
         }
