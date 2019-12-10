@@ -5,6 +5,8 @@
  */
 package com.mycompany.models;
 
+import java.sql.Date;
+
 /**
  *
  * @author cristian
@@ -15,7 +17,12 @@ public class Task {
     private String titleTask;
     private String descriptionTask;
     private Integer idEmployee;
-
+    private String nombre;
+    private Date date_start;
+    private Date date_end;
+    private String estado;
+    public static final String[] estados = {"Asignado", "Realizado", "Finalizado"};
+    
     public Task() {
     }
 
@@ -24,6 +31,22 @@ public class Task {
         this.descriptionTask = descriptionTask;
         this.idEmployee = idEmployee;
         this.titleTask = titleTask;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public Integer getIdTask() {
@@ -56,6 +79,22 @@ public class Task {
 
     public void setIdEmployee(Integer idEmployee) {
         this.idEmployee = idEmployee;
+    }
+
+    public Date getDate_start() {
+        return date_start;
+    }
+
+    public void setDate_start(Date date_start) {
+        this.date_start = date_start;
+    }
+
+    public Date getDate_end() {
+        return date_end;
+    }
+
+    public void setDate_end(Date date_end) {
+        this.date_end = date_end;
     }
 
 }

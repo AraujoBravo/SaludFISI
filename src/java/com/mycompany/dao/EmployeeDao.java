@@ -68,14 +68,12 @@ public class EmployeeDao implements Dao<Employee> {
                 ResultSet rs = cs.executeQuery();
                 while (rs.next()) {
                     Employee employee = (Employee) uf.createUser("EMPLOYEE");
+                    System.out.println(rs.getInt("id"));
                     employee.setIdEmployee(rs.getInt("id"));
                     employee.setFirstname(rs.getString("firstname"));
                     employee.setLastname(rs.getString("lastname"));
                     employee.setPassword(rs.getString("password"));
                     employee.setEmail(rs.getString("email"));
-                    employee.setAge(rs.getInt("age"));
-                    employee.setGenre(rs.getString("genre"));
-                    employee.setHealthCondition(rs.getString("healthCondition"));
                     employee.setDni(rs.getInt("dni"));
                     employee.setDireccion(rs.getString("direccion"));
                     lista.add(employee);

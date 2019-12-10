@@ -61,7 +61,12 @@ public class TaskDao implements Dao<Task> {
                     task.setIdTask(rs.getInt("id"));
                     task.setTitleTask(rs.getString("titleTask"));
                     task.setDescriptionTask(rs.getString("descriptionTask"));
-                    task.setIdEmployee(rs.getInt("idEmployee"));
+                    task.setNombre(rs.getString("nombre"));
+                    task.setDate_start(rs.getDate("date_start"));
+                    task.setDate_end(rs.getDate("date_end"));
+                    task.setEstado(rs.getString("state"));
+                    
+                    lista.add(task);
                 }
             } catch (SQLException ex) {
             } finally {
@@ -74,16 +79,50 @@ public class TaskDao implements Dao<Task> {
         return lista;
     }
 
+    public List<Task> getAllEmpleado(int id) {
+        ArrayList<Task> lista = new ArrayList<>();
+        String pa = "{CALL getTareaEmpleado(?)}";
+        Connection cn = DBAccess.getInstance().getConnection();
+        if (cn != null) {
+            try {
+                CallableStatement cs = cn.prepareCall(pa);
+                cs.setInt(1, id);
+                ResultSet rs = cs.executeQuery();
+                while (rs.next()) {
+                    Task task = new Task();
+                    task.setIdTask(rs.getInt("id"));
+                    task.setTitleTask(rs.getString("titleTask"));
+                    task.setDescriptionTask(rs.getString("descriptionTask"));
+                    task.setNombre(rs.getString("nombre"));
+                    task.setDate_start(rs.getDate("date_start"));
+                    task.setDate_end(rs.getDate("date_end"));
+                    task.setEstado(rs.getString("state"));
+                    
+                    lista.add(task);
+                }
+            } catch (SQLException ex) {
+            } finally {
+                try {
+                    cn.close();
+                } catch (SQLException e) {
+                }
+            }
+        }
+        return lista;
+    }
     @Override
     public void save(Task t) {
         Connection cn = DBAccess.getInstance().getConnection();
-        String pa = "{call saveTask(?,?,?)}";
+        String pa = "{call saveTask(?,?,?,?,?,?)}";
         if (cn != null) {
             try {
                 CallableStatement cs = cn.prepareCall(pa);
                 cs.setString(1, t.getTitleTask());
                 cs.setString(2, t.getDescriptionTask());
                 cs.setInt(3, t.getIdEmployee());
+                cs.setDate(4, t.getDate_start());
+                cs.setDate(5, t.getDate_end());
+                cs.setString(6, t.getEstado());
                 cs.executeUpdate();
             } catch (SQLException e) {
 

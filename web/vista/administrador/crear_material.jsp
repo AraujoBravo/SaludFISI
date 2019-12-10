@@ -61,9 +61,6 @@
                         <li>
                             <a href="/ProyectoPatrones/controlador_crear_tarea"><i class="menu-icon fa fa-plus-square-o"></i>Crear tarea</a>
                         </li>
-                        <li>
-                            <a href="/ProyectoPatrones/controlador_evaluar_tarea"><i class="menu-icon fa fa-check"></i>Evaluar tarea</a>
-                        </li>
                         <li class="menu-title">Incidencias</li><!-- /.menu-title -->
                         <li>
                             <a href="/ProyectoPatrones/controlador_lista_incidencias_tarea"><i class="menu-icon fa fa-wrench"></i>Incidencias en tarea</a>

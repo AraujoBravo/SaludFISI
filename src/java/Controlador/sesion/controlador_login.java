@@ -6,7 +6,9 @@
 package Controlador.sesion;
 
 import com.mycompany.dao.Dao;
+import com.mycompany.dao.TaskDao;
 import com.mycompany.dao.UsuarioDao;
+import com.mycompany.models.Task;
 import com.mycompany.models.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -97,6 +99,9 @@ public class controlador_login extends HttpServlet {
                 rd = request.getRequestDispatcher("/vista/administrador/lista_usuarios.jsp");
                 rd.forward(request, response);
             } else if (user_logeado.getTipo_cuenta().equals("empleado")) {
+                TaskDao tareaDao = new TaskDao();
+                List<Task> lista_tareas = tareaDao.getAllEmpleado(user_logeado.getIdUser());
+                request.setAttribute("lista_tareas", lista_tareas);
                 rd = request.getRequestDispatcher("/vista/empleado/lista_tareas.jsp");
                 rd.forward(request, response);
             }

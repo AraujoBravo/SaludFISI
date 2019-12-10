@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Controlador.administrador;
+package Controlador.sesion;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -13,13 +13,14 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author JuanEAB
  */
-@WebServlet(name = "controlador_evaluar_tarea", urlPatterns = {"/controlador_evaluar_tarea"})
-public class controlador_evaluar_tarea extends HttpServlet {
+@WebServlet(name = "controlador_exit", urlPatterns = {"/controlador_exit"})
+public class controlador_exit extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -38,10 +39,10 @@ public class controlador_evaluar_tarea extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet controlador_evaluar_tarea</title>");            
+            out.println("<title>Servlet controlador_exit</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet controlador_evaluar_tarea at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet controlador_exit at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -60,7 +61,8 @@ public class controlador_evaluar_tarea extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         RequestDispatcher rd;
-        rd = request.getRequestDispatcher("/vista/administrador/evaluar_tarea.jsp");
+        HttpSession session = request.getSession(false);
+        rd = request.getRequestDispatcher("/vista/sesion/login.jsp");
         rd.forward(request, response);
     }
 

@@ -5,8 +5,12 @@
  */
 package Controlador.empleado;
 
+import com.mycompany.dao.TaskDao;
+import com.mycompany.models.Task;
+import com.mycompany.models.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -38,7 +42,7 @@ public class controlador_empleado_lista_tareas extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet controlador_empleado_lista_tareas</title>");            
+            out.println("<title>Servlet controlador_empleado_lista_tareas</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet controlador_empleado_lista_tareas at " + request.getContextPath() + "</h1>");
@@ -60,6 +64,10 @@ public class controlador_empleado_lista_tareas extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         RequestDispatcher rd;
+        TaskDao tareaDao = new TaskDao();
+        Usuario user = (Usuario)request.getSession().getAttribute("usuario_registrado");
+        List<Task> lista_tareas = tareaDao.getAllEmpleado(user.getIdUser());
+        request.setAttribute("lista_tareas", lista_tareas);
         rd = request.getRequestDispatcher("/vista/empleado/lista_tareas.jsp");
         rd.forward(request, response);
     }

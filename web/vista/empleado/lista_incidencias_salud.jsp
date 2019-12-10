@@ -3,7 +3,10 @@
     Created on : 10/12/2019, 04:14:58 AM
     Author     : JuanEAB
 --%>
-
+<%@page import="com.mycompany.models.Usuario"%>
+<%
+    Usuario user_registrado = (Usuario)request.getSession().getAttribute("usuario_registrado");
+%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
@@ -76,92 +79,23 @@
                 <div class="top-right">
                     <div class="header-menu">
                         <div class="header-left">
-                            <button class="search-trigger"><i class="fa fa-search"></i></button>
-                            <div class="form-inline">
-                                <form class="search-form">
-                                    <input class="form-control mr-sm-2" type="text" placeholder="Search ..." aria-label="Search">
-                                    <button class="search-close" type="submit"><i class="fa fa-close"></i></button>
-                                </form>
-                            </div>
-
+                          
                             <div class="dropdown for-notification">
                                 <button class="btn btn-secondary dropdown-toggle" type="button" id="notification" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="fa fa-bell"></i>
-                                    <span class="count bg-danger">3</span>
+                                    <i class=""><%=user_registrado.getFirstname() %> <%=user_registrado.getLastname() %></i>
                                 </button>
-                                <div class="dropdown-menu" aria-labelledby="notification">
-                                    <p class="red">You have 3 Notification</p>
-                                    <a class="dropdown-item media" href="#">
-                                        <i class="fa fa-check"></i>
-                                        <p>Server #1 overloaded.</p>
-                                    </a>
-                                    <a class="dropdown-item media" href="#">
-                                        <i class="fa fa-info"></i>
-                                        <p>Server #2 overloaded.</p>
-                                    </a>
-                                    <a class="dropdown-item media" href="#">
-                                        <i class="fa fa-warning"></i>
-                                        <p>Server #3 overloaded.</p>
-                                    </a>
-                                </div>
+                                
                             </div>
 
-                            <div class="dropdown for-message">
-                                <button class="btn btn-secondary dropdown-toggle" type="button" id="message" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="fa fa-envelope"></i>
-                                    <span class="count bg-primary">4</span>
-                                </button>
-                                <div class="dropdown-menu" aria-labelledby="message">
-                                    <p class="red">You have 4 Mails</p>
-                                    <a class="dropdown-item media" href="#">
-                                        <span class="photo media-left"><img alt="avatar" src="images/avatar/1.jpg"></span>
-                                        <div class="message media-body">
-                                            <span class="name float-left">Jonathan Smith</span>
-                                            <span class="time float-right">Just now</span>
-                                            <p>Hello, this is an example msg</p>
-                                        </div>
-                                    </a>
-                                    <a class="dropdown-item media" href="#">
-                                        <span class="photo media-left"><img alt="avatar" src="images/avatar/2.jpg"></span>
-                                        <div class="message media-body">
-                                            <span class="name float-left">Jack Sanders</span>
-                                            <span class="time float-right">5 minutes ago</span>
-                                            <p>Lorem ipsum dolor sit amet, consectetur</p>
-                                        </div>
-                                    </a>
-                                    <a class="dropdown-item media" href="#">
-                                        <span class="photo media-left"><img alt="avatar" src="images/avatar/3.jpg"></span>
-                                        <div class="message media-body">
-                                            <span class="name float-left">Cheryl Wheeler</span>
-                                            <span class="time float-right">10 minutes ago</span>
-                                            <p>Hello, this is an example msg</p>
-                                        </div>
-                                    </a>
-                                    <a class="dropdown-item media" href="#">
-                                        <span class="photo media-left"><img alt="avatar" src="images/avatar/4.jpg"></span>
-                                        <div class="message media-body">
-                                            <span class="name float-left">Rachel Santos</span>
-                                            <span class="time float-right">15 minutes ago</span>
-                                            <p>Lorem ipsum dolor sit amet, consectetur</p>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
                         </div>
 
                         <div class="user-area dropdown float-right">
                             <a href="#" class="dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img class="user-avatar rounded-circle" src="images/admin.jpg" alt="User Avatar">
+                                <img class="user-avatar rounded-circle" src="images/icon_user.png" alt="User Avatar">
                             </a>
-
+                               
                             <div class="user-menu dropdown-menu">
-                                <a class="nav-link" href="#"><i class="fa fa-user"></i>My Profile</a>
-
-                                <a class="nav-link" href="#"><i class="fa fa-bell-o"></i>Notifications <span class="count">13</span></a>
-
-                                <a class="nav-link" href="#"><i class="fa fa-cog"></i>Settings</a>
-
-                                <a class="nav-link" href="#"><i class="fa fa-power-off"></i>Logout</a>
+                                <a class="nav-link" href="/ProyectoPatrones/controlador_exit"><i class="fa fa-power-off"></i>Salir</a>
                             </div>
                         </div>
                     </div>
@@ -175,7 +109,7 @@
                         <div class="col-sm-4">
                             <div class="page-header float-left">
                                 <div class="page-title">
-                                    <h1>Dashboard</h1>
+                                    <h1>Incidencias</h1>
                                 </div>
                             </div>
                         </div>
@@ -183,9 +117,8 @@
                             <div class="page-header float-right">
                                 <div class="page-title">
                                     <ol class="breadcrumb text-right">
-                                        <li><a href="#">Dashboard</a></li>
-                                        <li><a href="#">Table</a></li>
-                                        <li class="active">Basic table</li>
+                                        <li><a href="#">Incidencias</a></li>
+                                        <li class="active">Incidencias de Salud</li>
                                     </ol>
                                 </div>
                             </div>
@@ -197,332 +130,141 @@
             <div class="content">
                 <div class="animated fadeIn">
                     <div class="row">
-                        <div class="col-lg-6">
+                        <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <strong class="card-title">Custom Table</strong>
+                                    <strong class="card-title">Incidencias de Salud</strong>
                                 </div>
                                 <div class="table-stats order-table ov-h">
-                                    <table class="table ">
+                                    <table class="table text-center">
                                         <thead>
                                             <tr>
                                                 <th class="serial">#</th>
-                                                <th class="avatar">Avatar</th>
                                                 <th>ID</th>
-                                                <th>Name</th>
-                                                <th>Product</th>
-                                                <th>Quantity</th>
-                                                <th>Status</th>
+                                                <th>Tipo</th>
+                                                <th>Tarea</th>
+                                                <th>Fecha</th>
+                                                <th>Ver Más</th>
+                                                <th>Estado</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
                                                 <td class="serial">1.</td>
-                                                <td class="avatar">
-                                                    <div class="round-img">
-                                                        <a href="#"><img class="rounded-circle" src="images/avatar/1.jpg" alt=""></a>
-                                                    </div>
-                                                </td>
+                                                
                                                 <td> #5469 </td>
                                                 <td>  <span class="name">Louis Stanley</span> </td>
                                                 <td> <span class="product">iMax</span> </td>
-                                                <td><span class="count">231</span></td>
+                                                <td><span class="date">15/12/2019</span></td>
                                                 <td>
+                                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModalUno">Ver Más</button>
+                                                </td>
+                                                <td >
                                                     <span class="badge badge-complete">Complete</span>
                                                 </td>
                                             </tr>
-                                            <tr>
-                                                <td class="serial">2.</td>
-                                                <td class="avatar">
-                                                    <div class="round-img">
-                                                        <a href="#"><img class="rounded-circle" src="images/avatar/2.jpg" alt=""></a>
-                                                    </div>
-                                                </td>
-                                                <td> #5468 </td>
-                                                <td>  <span class="name">Gregory Dixon</span> </td>
-                                                <td> <span class="product">iPad</span> </td>
-                                                <td><span class="count">250</span></td>
-                                                <td>
-                                                    <span class="badge badge-complete">Complete</span>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="serial">3.</td>
-                                                <td class="avatar">
-                                                    <div class="round-img">
-                                                        <a href="#"><img class="rounded-circle" src="images/avatar/3.jpg" alt=""></a>
-                                                    </div>
-                                                </td>
-                                                <td> #5467 </td>
-                                                <td>  <span class="name">Catherine Dixon</span> </td>
-                                                <td> <span class="product">SSD</span> </td>
-                                                <td><span class="count">250</span></td>
-                                                <td>
-                                                    <span class="badge badge-complete">Complete</span>
-                                                </td>
-                                            </tr>
+                                            
+                                            
                                             <tr>
                                                 <td class="serial">4.</td>
-                                                <td class="avatar">
-                                                    <div class="round-img">
-                                                        <a href="#"><img class="rounded-circle" src="images/avatar/4.jpg" alt=""></a>
-                                                    </div>
-                                                </td>
+                                               
                                                 <td> #5466 </td>
                                                 <td>  <span class="name">Mary Silva</span> </td>
                                                 <td> <span class="product">Magic Mouse</span> </td>
-                                                <td><span class="count">250</span></td>
+                                                <td><span class="date">15/12/2019</span></td>
+                                                <td>
+                                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModalDos">Ver más</button>
+                                                </td>
                                                 <td>
                                                     <span class="badge badge-pending">Pending</span>
                                                 </td>
                                             </tr>
                                         </tbody>
                                     </table>
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="myModalUno" role="dialog">
+                                        <div class="modal-dialog">
+                                            <!-- Modal content-->
+                                            <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                <h4 class="modal-title">Modal </h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                 Información del Row
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    <!-- FIN Modal -->
+                                     <!-- Modal 1-->
+                                    <div class="modal fade" id="estadoUno" role="dialog">
+                                            <div class="modal-dialog">
+                                                <!-- Modal content-->
+                                                <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                    <h4 class="modal-title">Modal Estado </h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                    ¿Desea confirmar el cambio?
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-success" >Aceptar</button>
+                                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        </div>
+                                        <!-- FIN Modal -->
+
+
+                                     <!-- Modal -->
+                                    <div class="modal fade" id="myModalDos" role="dialog">
+                                            <div class="modal-dialog">
+                                            <!-- Modal content-->
+                                            <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                <h4 class="modal-title">Modal </h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <p>Información del Row</p>
+                                                
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    <!-- FIN Modal -->
+                                     <!-- Modal2 -->
+                                    <div class="modal fade" id="estadoDos" role="dialog">
+                                            <div class="modal-dialog">
+                                                <!-- Modal content-->
+                                                <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                    <h4 class="modal-title">Modal Estado </h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                    ¿Desea confirmar el cambio?
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-success" >Aceptar</button>
+                                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        </div>
+                                        <!-- FIN Modal -->
                                 </div> <!-- /.table-stats -->
                             </div>
                         </div>
-                        <div class="col-lg-6">
-                            <div class="card">
-                                <div class="card-header">
-                                    <strong class="card-title">Basic Table</strong>
-                                </div>
-                                <div class="card-body">
-                                    <table class="table">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">#</th>
-                                                <th scope="col">First</th>
-                                                <th scope="col">Last</th>
-                                                <th scope="col">Handle</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <th scope="row">1</th>
-                                                <td>Mark</td>
-                                                <td>Otto</td>
-                                                <td>@mdo</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">2</th>
-                                                <td>Jacob</td>
-                                                <td>Thornton</td>
-                                                <td>@fat</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">3</th>
-                                                <td>Larry</td>
-                                                <td>the Bird</td>
-                                                <td>@twitter</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-6">
-                            <div class="card">
-                                <div class="card-header">
-                                    <strong class="card-title">Stripped Table</strong>
-                                </div>
-                                <div class="card-body">
-                                    <table class="table table-striped">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">#</th>
-                                                <th scope="col">First</th>
-                                                <th scope="col">Last</th>
-                                                <th scope="col">Handle</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <th scope="row">1</th>
-                                                <td>Mark</td>
-                                                <td>Otto</td>
-                                                <td>@mdo</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">2</th>
-                                                <td>Jacob</td>
-                                                <td>Thornton</td>
-                                                <td>@fat</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">3</th>
-                                                <td>Larry</td>
-                                                <td>the Bird</td>
-                                                <td>@twitter</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-6">
-                            <div class="card">
-                                <div class="card-header">
-                                    <strong class="card-title">Table Dark</strong>
-                                </div>
-                                <div class="card-body">
-                                    <table class="table table-dark">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">#</th>
-                                                <th scope="col">First</th>
-                                                <th scope="col">Last</th>
-                                                <th scope="col">Handle</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <th scope="row">1</th>
-                                                <td>Mark</td>
-                                                <td>Otto</td>
-                                                <td>@mdo</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">2</th>
-                                                <td>Jacob</td>
-                                                <td>Thornton</td>
-                                                <td>@fat</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">3</th>
-                                                <td>Larry</td>
-                                                <td>the Bird</td>
-                                                <td>@twitter</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-6">
-                            <div class="card">
-                                <div class="card-header">
-                                    <strong class="card-title">Table Head</strong>
-                                </div>
-                                <div class="card-body">
-                                    <table class="table">
-                                        <thead class="thead-dark">
-                                            <tr>
-                                                <th scope="col">#</th>
-                                                <th scope="col">First</th>
-                                                <th scope="col">Last</th>
-                                                <th scope="col">Handle</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <th scope="row">1</th>
-                                                <td>Mark</td>
-                                                <td>Otto</td>
-                                                <td>@mdo</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">2</th>
-                                                <td>Jacob</td>
-                                                <td>Thornton</td>
-                                                <td>@fat</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">3</th>
-                                                <td>Larry</td>
-                                                <td>the Bird</td>
-                                                <td>@twitter</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-
-                                </div>
-                            </div>
-                        </div>
-
-
-
-
-                        <div class="col-lg-6">
-                            <div class="card">
-                                <div class="card-header">
-                                    <strong class="card-title">Bordered Table</strong>
-                                </div>
-                                <div class="card-body">
-                                    <table class="table table-bordered">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">#</th>
-                                                <th scope="col">First</th>
-                                                <th scope="col">Last</th>
-                                                <th scope="col">Handle</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <th scope="row">1</th>
-                                                <td>Mark</td>
-                                                <td>Otto</td>
-                                                <td>@mdo</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">2</th>
-                                                <td>Jacob</td>
-                                                <td>Thornton</td>
-                                                <td>@fat</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">3</th>
-                                                <td colspan="2">Larry the Bird</td>
-                                                <td>@twitter</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-6">
-                            <div class="card">
-                                <div class="card-header">
-                                    <strong class="card-title">Bordered Dark Table</strong>
-                                </div>
-                                <div class="card-body">
-                                    <table class="table table-bordered table-dark">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">#</th>
-                                                <th scope="col">First</th>
-                                                <th scope="col">Last</th>
-                                                <th scope="col">Handle</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <th scope="row">1</th>
-                                                <td>Mark</td>
-                                                <td>Otto</td>
-                                                <td>@mdo</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">2</th>
-                                                <td>Jacob</td>
-                                                <td>Thornton</td>
-                                                <td>@fat</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">3</th>
-                                                <td colspan="2">Larry the Bird</td>
-                                                <td>@twitter</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-
                     </div>
                 </div><!-- .animated -->
             </div><!-- .content -->
@@ -533,10 +275,10 @@
                 <div class="footer-inner bg-white">
                     <div class="row">
                         <div class="col-sm-6">
-                            Copyright &copy; 2018 Ela Admin
+                            Copyright &copy; 2019 SaludFISI
                         </div>
                         <div class="col-sm-6 text-right">
-                            Designed by <a href="https://colorlib.com">Colorlib</a>
+                            Designed by <a href="https://colorlib.com">TEAM_SALUDFISI</a>
                         </div>
                     </div>
                 </div>
@@ -551,6 +293,8 @@
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.4/dist/umd/popper.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/jquery-match-height@0.7.2/dist/jquery.matchHeight.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"></script>
+        
         <script src="assets/js/main.js"></script>
 
 

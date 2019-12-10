@@ -7,7 +7,9 @@ package Controlador.administrador;
 
 import com.mycompany.dao.Dao;
 import com.mycompany.dao.MaterialDao;
+import com.mycompany.dao.TaskDao;
 import com.mycompany.models.Material;
+import com.mycompany.models.Task;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -64,6 +66,9 @@ public class controlador_lista_tareas extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         RequestDispatcher rd;
+        Dao tareaDao = new TaskDao();
+        List<Task> lista_tareas = tareaDao.getAll();
+        request.setAttribute("lista_tareas", lista_tareas);
         rd = request.getRequestDispatcher("/vista/administrador/lista_tareas.jsp");
         rd.forward(request, response);
     }
