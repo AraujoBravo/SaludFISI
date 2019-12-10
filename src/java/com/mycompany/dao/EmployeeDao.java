@@ -102,9 +102,6 @@ public class EmployeeDao implements Dao<Employee> {
                 cs.setString(2, t.getLastname());
                 cs.setString(3, t.getPassword());
                 cs.setString(4, t.getEmail());
-                cs.setInt(5, t.getAge());
-                cs.setString(6, t.getGenre());
-                cs.setString(7, t.getHealthCondition());
                 cs.setString(8, String.valueOf(t.getDni()));
                 cs.setString(9, t.getDireccion());
                 cs.executeUpdate();

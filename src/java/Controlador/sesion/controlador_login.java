@@ -5,8 +5,12 @@
  */
 package Controlador.sesion;
 
+import com.mycompany.dao.Dao;
+import com.mycompany.dao.UsuarioDao;
+import com.mycompany.models.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -60,6 +64,7 @@ public class controlador_login extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         RequestDispatcher rd;
+        
         rd = request.getRequestDispatcher("/vista/sesion/login.jsp");
         rd.forward(request, response);
     }
@@ -76,6 +81,13 @@ public class controlador_login extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         RequestDispatcher rd;
+        Dao usuarioDao = new UsuarioDao();        
+        List<Usuario> lista = usuarioDao.getAll();
+        request.setAttribute("lista_usuarios", lista);
+        for (Usuario user : lista) {
+            System.out.println("nombrex"+user.getFirstname()+" id: "+user.getEmail());
+            
+        }
         rd = request.getRequestDispatcher("/vista/administrador/lista_usuarios.jsp");
         rd.forward(request, response);
     }

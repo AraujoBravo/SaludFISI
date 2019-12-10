@@ -5,8 +5,12 @@
  */
 package Controlador.administrador;
 
+import com.mycompany.dao.Dao;
+import com.mycompany.dao.MaterialDao;
+import com.mycompany.models.Material;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -60,6 +64,7 @@ public class controlador_crear_material extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         RequestDispatcher rd;
+        
         rd = request.getRequestDispatcher("/vista/administrador/crear_material.jsp");
         rd.forward(request, response);
     }
@@ -75,7 +80,21 @@ public class controlador_crear_material extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        RequestDispatcher rd;
+        String nombre = request.getParameter("nombre");
+        String descripcion = request.getParameter("descripcion");
+        
+        Dao materialDao = new MaterialDao();
+        
+        Material material = new Material();
+        material.setTitleMaterial(nombre);
+        material.setDescription(descripcion);
+        materialDao.save(material);
+        
+        List<Material> lista = materialDao.getAll();
+        request.setAttribute("lista_materiales", lista);
+        rd = request.getRequestDispatcher("/vista/administrador/lista_materiales.jsp");
+        rd.forward(request, response);
     }
 
     /**

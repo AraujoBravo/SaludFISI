@@ -1,8 +1,14 @@
+<%@page import="com.mycompany.models.Material"%>
+<%@page import="java.util.List"%>
+<%
+    List<Material> lista_materiales = (List<Material>) request.getAttribute("lista_materiales");
+%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->    
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -189,7 +195,7 @@
                         <div class="col-sm-4">
                             <div class="page-header float-left">
                                 <div class="page-title">
-                                    <h1>Dashboard</h1>
+                                    <h1>Lista de materiales</h1>
                                 </div>
                             </div>
                         </div>
@@ -197,9 +203,8 @@
                             <div class="page-header float-right">
                                 <div class="page-title">
                                     <ol class="breadcrumb text-right">
-                                        <li><a href="#">Dashboard</a></li>
-                                        <li><a href="#">Table</a></li>
-                                        <li class="active">Basic table</li>
+                                        <li><a href="#">Materiales</a></li>
+                                        <li class="active">Lista de materiales</li>
                                     </ol>
                                 </div>
                             </div>
@@ -211,332 +216,39 @@
             <div class="content">
                 <div class="animated fadeIn">
                     <div class="row">
-                        <div class="col-lg-6">
+                        <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <strong class="card-title">Custom Table</strong>
+                                    <strong class="card-title"></strong>
                                 </div>
                                 <div class="table-stats order-table ov-h">
                                     <table class="table ">
                                         <thead>
                                             <tr>
                                                 <th class="serial">#</th>
-                                                <th class="avatar">Avatar</th>
                                                 <th>ID</th>
-                                                <th>Name</th>
-                                                <th>Product</th>
-                                                <th>Quantity</th>
-                                                <th>Status</th>
+                                                <th>Nombre</th>
+                                                <th>Descripción</th>
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            <% if (!lista_materiales.isEmpty()) {
+                                                    int i = 0;
+                                                    for (Material material : lista_materiales) {
+                                                        i++;%>
                                             <tr>
-                                                <td class="serial">1.</td>
-                                                <td class="avatar">
-                                                    <div class="round-img">
-                                                        <a href="#"><img class="rounded-circle" src="images/avatar/1.jpg" alt=""></a>
-                                                    </div>
-                                                </td>
-                                                <td> #5469 </td>
-                                                <td>  <span class="name">Louis Stanley</span> </td>
-                                                <td> <span class="product">iMax</span> </td>
-                                                <td><span class="count">231</span></td>
-                                                <td>
-                                                    <span class="badge badge-complete">Complete</span>
-                                                </td>
+                                                <td><%=i%></td>
+                                                <td><%=material.getIdMaterial()%></td>
+                                                <td><%=material.getTitleMaterial()%></td>
+                                                <td><%=material.getDescription()%></td>
                                             </tr>
-                                            <tr>
-                                                <td class="serial">2.</td>
-                                                <td class="avatar">
-                                                    <div class="round-img">
-                                                        <a href="#"><img class="rounded-circle" src="images/avatar/2.jpg" alt=""></a>
-                                                    </div>
-                                                </td>
-                                                <td> #5468 </td>
-                                                <td>  <span class="name">Gregory Dixon</span> </td>
-                                                <td> <span class="product">iPad</span> </td>
-                                                <td><span class="count">250</span></td>
-                                                <td>
-                                                    <span class="badge badge-complete">Complete</span>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="serial">3.</td>
-                                                <td class="avatar">
-                                                    <div class="round-img">
-                                                        <a href="#"><img class="rounded-circle" src="images/avatar/3.jpg" alt=""></a>
-                                                    </div>
-                                                </td>
-                                                <td> #5467 </td>
-                                                <td>  <span class="name">Catherine Dixon</span> </td>
-                                                <td> <span class="product">SSD</span> </td>
-                                                <td><span class="count">250</span></td>
-                                                <td>
-                                                    <span class="badge badge-complete">Complete</span>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="serial">4.</td>
-                                                <td class="avatar">
-                                                    <div class="round-img">
-                                                        <a href="#"><img class="rounded-circle" src="images/avatar/4.jpg" alt=""></a>
-                                                    </div>
-                                                </td>
-                                                <td> #5466 </td>
-                                                <td>  <span class="name">Mary Silva</span> </td>
-                                                <td> <span class="product">Magic Mouse</span> </td>
-                                                <td><span class="count">250</span></td>
-                                                <td>
-                                                    <span class="badge badge-pending">Pending</span>
-                                                </td>
-                                            </tr>
+                                            <% }
+                                            }%>
                                         </tbody>
                                     </table>
                                 </div> <!-- /.table-stats -->
                             </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="card">
-                                <div class="card-header">
-                                    <strong class="card-title">Basic Table</strong>
-                                </div>
-                                <div class="card-body">
-                                    <table class="table">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">#</th>
-                                                <th scope="col">First</th>
-                                                <th scope="col">Last</th>
-                                                <th scope="col">Handle</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <th scope="row">1</th>
-                                                <td>Mark</td>
-                                                <td>Otto</td>
-                                                <td>@mdo</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">2</th>
-                                                <td>Jacob</td>
-                                                <td>Thornton</td>
-                                                <td>@fat</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">3</th>
-                                                <td>Larry</td>
-                                                <td>the Bird</td>
-                                                <td>@twitter</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-6">
-                            <div class="card">
-                                <div class="card-header">
-                                    <strong class="card-title">Stripped Table</strong>
-                                </div>
-                                <div class="card-body">
-                                    <table class="table table-striped">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">#</th>
-                                                <th scope="col">First</th>
-                                                <th scope="col">Last</th>
-                                                <th scope="col">Handle</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <th scope="row">1</th>
-                                                <td>Mark</td>
-                                                <td>Otto</td>
-                                                <td>@mdo</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">2</th>
-                                                <td>Jacob</td>
-                                                <td>Thornton</td>
-                                                <td>@fat</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">3</th>
-                                                <td>Larry</td>
-                                                <td>the Bird</td>
-                                                <td>@twitter</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-6">
-                            <div class="card">
-                                <div class="card-header">
-                                    <strong class="card-title">Table Dark</strong>
-                                </div>
-                                <div class="card-body">
-                                    <table class="table table-dark">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">#</th>
-                                                <th scope="col">First</th>
-                                                <th scope="col">Last</th>
-                                                <th scope="col">Handle</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <th scope="row">1</th>
-                                                <td>Mark</td>
-                                                <td>Otto</td>
-                                                <td>@mdo</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">2</th>
-                                                <td>Jacob</td>
-                                                <td>Thornton</td>
-                                                <td>@fat</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">3</th>
-                                                <td>Larry</td>
-                                                <td>the Bird</td>
-                                                <td>@twitter</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-6">
-                            <div class="card">
-                                <div class="card-header">
-                                    <strong class="card-title">Table Head</strong>
-                                </div>
-                                <div class="card-body">
-                                    <table class="table">
-                                        <thead class="thead-dark">
-                                            <tr>
-                                                <th scope="col">#</th>
-                                                <th scope="col">First</th>
-                                                <th scope="col">Last</th>
-                                                <th scope="col">Handle</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <th scope="row">1</th>
-                                                <td>Mark</td>
-                                                <td>Otto</td>
-                                                <td>@mdo</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">2</th>
-                                                <td>Jacob</td>
-                                                <td>Thornton</td>
-                                                <td>@fat</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">3</th>
-                                                <td>Larry</td>
-                                                <td>the Bird</td>
-                                                <td>@twitter</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-
-                                </div>
-                            </div>
-                        </div>
-
-
-
-
-                        <div class="col-lg-6">
-                            <div class="card">
-                                <div class="card-header">
-                                    <strong class="card-title">Bordered Table</strong>
-                                </div>
-                                <div class="card-body">
-                                    <table class="table table-bordered">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">#</th>
-                                                <th scope="col">First</th>
-                                                <th scope="col">Last</th>
-                                                <th scope="col">Handle</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <th scope="row">1</th>
-                                                <td>Mark</td>
-                                                <td>Otto</td>
-                                                <td>@mdo</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">2</th>
-                                                <td>Jacob</td>
-                                                <td>Thornton</td>
-                                                <td>@fat</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">3</th>
-                                                <td colspan="2">Larry the Bird</td>
-                                                <td>@twitter</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-6">
-                            <div class="card">
-                                <div class="card-header">
-                                    <strong class="card-title">Bordered Dark Table</strong>
-                                </div>
-                                <div class="card-body">
-                                    <table class="table table-bordered table-dark">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">#</th>
-                                                <th scope="col">First</th>
-                                                <th scope="col">Last</th>
-                                                <th scope="col">Handle</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <th scope="row">1</th>
-                                                <td>Mark</td>
-                                                <td>Otto</td>
-                                                <td>@mdo</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">2</th>
-                                                <td>Jacob</td>
-                                                <td>Thornton</td>
-                                                <td>@fat</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">3</th>
-                                                <td colspan="2">Larry the Bird</td>
-                                                <td>@twitter</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-
+                        </div>                  
                     </div>
                 </div><!-- .animated -->
             </div><!-- .content -->
@@ -547,10 +259,10 @@
                 <div class="footer-inner bg-white">
                     <div class="row">
                         <div class="col-sm-6">
-                            Copyright &copy; 2018 Ela Admin
+                            Copyright &copy; 2019 SaludFISI
                         </div>
                         <div class="col-sm-6 text-right">
-                            Designed by <a href="https://colorlib.com">Colorlib</a>
+                            Designed by <a href="#">@TEAM_SALUDFISI</a>
                         </div>
                     </div>
                 </div>

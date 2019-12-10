@@ -14,7 +14,8 @@ public abstract class User {
     protected String email;
     protected Integer dni;
     protected String direccion;
-
+    public static final String[] tipos_cuenta = {"administrativo", "empleado"};
+    
     public User() {
     }
 
@@ -83,7 +84,6 @@ public abstract class User {
     public void setDireccion(String direccion) {
         this.direccion = direccion;
     }
-    
 
     public boolean match(String tipo) {
         return tipo.equalsIgnoreCase("USER");

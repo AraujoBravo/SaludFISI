@@ -189,7 +189,7 @@
                         <div class="col-sm-4">
                             <div class="page-header float-left">
                                 <div class="page-title">
-                                    <h1>Dashboard</h1>
+                                    <h1>Crear usuario</h1>
                                 </div>
                             </div>
                         </div>
@@ -197,9 +197,8 @@
                             <div class="page-header float-right">
                                 <div class="page-title">
                                     <ol class="breadcrumb text-right">
-                                        <li><a href="#">Dashboard</a></li>
-                                        <li><a href="#">Table</a></li>
-                                        <li class="active">Basic table</li>
+                                        <li><a href="#">Usuario</a></li>
+                                        <li class="active">Crear usuario</li>
                                     </ol>
                                 </div>
                             </div>
@@ -210,336 +209,62 @@
 
             <div class="content">
                 <div class="animated fadeIn">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="card">
-                                <div class="card-header">
-                                    <strong class="card-title">Custom Table</strong>
-                                </div>
-                                <div class="table-stats order-table ov-h">
-                                    <table class="table ">
-                                        <thead>
-                                            <tr>
-                                                <th class="serial">#</th>
-                                                <th class="avatar">Avatar</th>
-                                                <th>ID</th>
-                                                <th>Name</th>
-                                                <th>Product</th>
-                                                <th>Quantity</th>
-                                                <th>Status</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td class="serial">1.</td>
-                                                <td class="avatar">
-                                                    <div class="round-img">
-                                                        <a href="#"><img class="rounded-circle" src="images/avatar/1.jpg" alt=""></a>
-                                                    </div>
-                                                </td>
-                                                <td> #5469 </td>
-                                                <td>  <span class="name">Louis Stanley</span> </td>
-                                                <td> <span class="product">iMax</span> </td>
-                                                <td><span class="count">231</span></td>
-                                                <td>
-                                                    <span class="badge badge-complete">Complete</span>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="serial">2.</td>
-                                                <td class="avatar">
-                                                    <div class="round-img">
-                                                        <a href="#"><img class="rounded-circle" src="images/avatar/2.jpg" alt=""></a>
-                                                    </div>
-                                                </td>
-                                                <td> #5468 </td>
-                                                <td>  <span class="name">Gregory Dixon</span> </td>
-                                                <td> <span class="product">iPad</span> </td>
-                                                <td><span class="count">250</span></td>
-                                                <td>
-                                                    <span class="badge badge-complete">Complete</span>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="serial">3.</td>
-                                                <td class="avatar">
-                                                    <div class="round-img">
-                                                        <a href="#"><img class="rounded-circle" src="images/avatar/3.jpg" alt=""></a>
-                                                    </div>
-                                                </td>
-                                                <td> #5467 </td>
-                                                <td>  <span class="name">Catherine Dixon</span> </td>
-                                                <td> <span class="product">SSD</span> </td>
-                                                <td><span class="count">250</span></td>
-                                                <td>
-                                                    <span class="badge badge-complete">Complete</span>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="serial">4.</td>
-                                                <td class="avatar">
-                                                    <div class="round-img">
-                                                        <a href="#"><img class="rounded-circle" src="images/avatar/4.jpg" alt=""></a>
-                                                    </div>
-                                                </td>
-                                                <td> #5466 </td>
-                                                <td>  <span class="name">Mary Silva</span> </td>
-                                                <td> <span class="product">Magic Mouse</span> </td>
-                                                <td><span class="count">250</span></td>
-                                                <td>
-                                                    <span class="badge badge-pending">Pending</span>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div> <!-- /.table-stats -->
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="card">
-                                <div class="card-header">
-                                    <strong class="card-title">Basic Table</strong>
-                                </div>
-                                <div class="card-body">
-                                    <table class="table">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">#</th>
-                                                <th scope="col">First</th>
-                                                <th scope="col">Last</th>
-                                                <th scope="col">Handle</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <th scope="row">1</th>
-                                                <td>Mark</td>
-                                                <td>Otto</td>
-                                                <td>@mdo</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">2</th>
-                                                <td>Jacob</td>
-                                                <td>Thornton</td>
-                                                <td>@fat</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">3</th>
-                                                <td>Larry</td>
-                                                <td>the Bird</td>
-                                                <td>@twitter</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                    <form action="/ProyectoPatrones/controlador_crear_usuario" method="post">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="card">
+                                    <div class="card-header"><strong>Datos generales</strong><small> </small></div>
+                                    <div class="card-body card-block">
+                                        <div class="form-group"><label for="nombre" class=" form-control-label">Nombre</label><input type="text" id="nombre" name="nombre" placeholder="Ingrese su nombre" class="form-control" required></div>
+                                        <div class="form-group"><label for="apellido" class=" form-control-label">Apellido</label><input type="text" id="apellido" name="apellido" placeholder="Ingrese su apellido" class="form-control" required></div>
+                                        <div class="form-group"><label for="dni" class=" form-control-label">DNI</label><input type="number" maxlength="8" id="dni" name="dni" placeholder="Ingrese su dni" class="form-control" required></div>
+                                        <div class="form-group"><label for="direccion" class=" form-control-label">Dirección</label><input type="text" id="direccion" name="direccion" placeholder="Ingrese la dirección de su hogar" class="form-control" required></div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="col-lg-6">
-                            <div class="card">
-                                <div class="card-header">
-                                    <strong class="card-title">Stripped Table</strong>
-                                </div>
-                                <div class="card-body">
-                                    <table class="table table-striped">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">#</th>
-                                                <th scope="col">First</th>
-                                                <th scope="col">Last</th>
-                                                <th scope="col">Handle</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <th scope="row">1</th>
-                                                <td>Mark</td>
-                                                <td>Otto</td>
-                                                <td>@mdo</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">2</th>
-                                                <td>Jacob</td>
-                                                <td>Thornton</td>
-                                                <td>@fat</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">3</th>
-                                                <td>Larry</td>
-                                                <td>the Bird</td>
-                                                <td>@twitter</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
+                            <div class="col-lg-6">
+                                <div class="card">
+                                    <div class="card-header"><strong>Datos de acceso</strong></div>
+                                    <div class="card-body card-block">                                          
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <div class="input-group-addon"><i class="fa fa-envelope"></i></div>
+                                                <input type="email" id="email" name="email" placeholder="Correo" class="form-control" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <div class="input-group-addon"><i class="fa fa-asterisk"></i></div>
+                                                <input type="password" id="password" name="password" placeholder="Contraseña" class="form-control" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <div class="input-group-addon"><i class="fa fa-asterisk"></i></div>
+                                                <input type="password" id="password2" name="password2" placeholder="Repita la contraseña" class="form-control" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>  
+                                <div class="card">
+                                    <div class="card-header"><strong>Cargo</strong></div>
+                                    <div class="card-body card-block">                                          
+                                        <div class="form-group">
+                                            <label for="tipo_cuenta" class=" form-control-label">Tipo de cargo</label>
+                                            <select name="tipo_cuenta" id="selectSm" class="form-control-sm form-control" required>
+                                                <option value="0" >Seleccionar</option>
+                                                <option value="administrativo">Administrativo</option>
+                                                <option value="empleado">Empleado</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div> 
+                                <div class="form-actions form-group right-panel"><button type="submit" class="btn btn-success btn-lg">Crear usuario</button></div>
                             </div>
                         </div>
-
-                        <div class="col-lg-6">
-                            <div class="card">
-                                <div class="card-header">
-                                    <strong class="card-title">Table Dark</strong>
-                                </div>
-                                <div class="card-body">
-                                    <table class="table table-dark">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">#</th>
-                                                <th scope="col">First</th>
-                                                <th scope="col">Last</th>
-                                                <th scope="col">Handle</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <th scope="row">1</th>
-                                                <td>Mark</td>
-                                                <td>Otto</td>
-                                                <td>@mdo</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">2</th>
-                                                <td>Jacob</td>
-                                                <td>Thornton</td>
-                                                <td>@fat</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">3</th>
-                                                <td>Larry</td>
-                                                <td>the Bird</td>
-                                                <td>@twitter</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-6">
-                            <div class="card">
-                                <div class="card-header">
-                                    <strong class="card-title">Table Head</strong>
-                                </div>
-                                <div class="card-body">
-                                    <table class="table">
-                                        <thead class="thead-dark">
-                                            <tr>
-                                                <th scope="col">#</th>
-                                                <th scope="col">First</th>
-                                                <th scope="col">Last</th>
-                                                <th scope="col">Handle</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <th scope="row">1</th>
-                                                <td>Mark</td>
-                                                <td>Otto</td>
-                                                <td>@mdo</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">2</th>
-                                                <td>Jacob</td>
-                                                <td>Thornton</td>
-                                                <td>@fat</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">3</th>
-                                                <td>Larry</td>
-                                                <td>the Bird</td>
-                                                <td>@twitter</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-
-                                </div>
-                            </div>
-                        </div>
-
-
-
-
-                        <div class="col-lg-6">
-                            <div class="card">
-                                <div class="card-header">
-                                    <strong class="card-title">Bordered Table</strong>
-                                </div>
-                                <div class="card-body">
-                                    <table class="table table-bordered">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">#</th>
-                                                <th scope="col">First</th>
-                                                <th scope="col">Last</th>
-                                                <th scope="col">Handle</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <th scope="row">1</th>
-                                                <td>Mark</td>
-                                                <td>Otto</td>
-                                                <td>@mdo</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">2</th>
-                                                <td>Jacob</td>
-                                                <td>Thornton</td>
-                                                <td>@fat</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">3</th>
-                                                <td colspan="2">Larry the Bird</td>
-                                                <td>@twitter</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-6">
-                            <div class="card">
-                                <div class="card-header">
-                                    <strong class="card-title">Bordered Dark Table</strong>
-                                </div>
-                                <div class="card-body">
-                                    <table class="table table-bordered table-dark">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">#</th>
-                                                <th scope="col">First</th>
-                                                <th scope="col">Last</th>
-                                                <th scope="col">Handle</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <th scope="row">1</th>
-                                                <td>Mark</td>
-                                                <td>Otto</td>
-                                                <td>@mdo</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">2</th>
-                                                <td>Jacob</td>
-                                                <td>Thornton</td>
-                                                <td>@fat</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">3</th>
-                                                <td colspan="2">Larry the Bird</td>
-                                                <td>@twitter</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div><!-- .animated -->
-            </div><!-- .content -->
+                    </form>
+                </div>
+            </div>
 
             <div class="clearfix"></div>
 
@@ -547,10 +272,10 @@
                 <div class="footer-inner bg-white">
                     <div class="row">
                         <div class="col-sm-6">
-                            Copyright &copy; 2018 Ela Admin
+                            Copyright &copy; 2019 SaludFISI
                         </div>
                         <div class="col-sm-6 text-right">
-                            Designed by <a href="https://colorlib.com">Colorlib</a>
+                            Designed by <a href="#">@TEAM_SALUDFISI</a>
                         </div>
                     </div>
                 </div>

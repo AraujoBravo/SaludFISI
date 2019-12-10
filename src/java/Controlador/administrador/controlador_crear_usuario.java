@@ -5,8 +5,17 @@
  */
 package Controlador.administrador;
 
+import com.mycompany.dao.AdministratorDao;
+import com.mycompany.dao.Dao;
+import com.mycompany.dao.EmployeeDao;
+import com.mycompany.dao.UsuarioDao;
+import com.mycompany.models.Administrator;
+import com.mycompany.models.Employee;
+import com.mycompany.models.User;
+import com.mycompany.models.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -38,7 +47,7 @@ public class controlador_crear_usuario extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet controlador_crear_usuario</title>");            
+            out.println("<title>Servlet controlador_crear_usuario</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet controlador_crear_usuario at " + request.getContextPath() + "</h1>");
@@ -75,7 +84,53 @@ public class controlador_crear_usuario extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        RequestDispatcher rd;
+        String nombre = request.getParameter("nombre");
+        String apellido = request.getParameter("apellido");
+        Integer dni = (Integer.parseInt(request.getParameter("dni")));
+        String direccion = request.getParameter("direccion");
+        String email = request.getParameter("email");
+        String password = request.getParameter("password");
+        String password2 = request.getParameter("password2");
+        String tipo_cuenta = request.getParameter("tipo_cuenta");
+
+        if (password.equals(password2)) {
+            if (tipo_cuenta.equals(User.tipos_cuenta[0])) //cuenta tipo administrativo
+            {
+                Dao admindao = new AdministratorDao();
+
+                Administrator admin = new Administrator();
+                admin.setFirstname(nombre);
+                admin.setLastname(apellido);
+                admin.setDni(dni);
+                admin.setEmail(email);
+                admin.setDireccion(direccion);
+                admin.setPassword(password);
+
+                admindao.save(admin);
+            } else if (tipo_cuenta.equals(User.tipos_cuenta[1])) //cuenta tipo empleado
+            {
+                Dao empleadoDao = new EmployeeDao();
+                Employee empleado = new Employee();
+                empleado.setDireccion(direccion);
+                empleado.setDni(dni);
+                empleado.setFirstname(nombre);
+                empleado.setLastname(apellido);
+                empleado.setEmail(email);
+                empleado.setPassword(password);
+
+                empleadoDao.save(empleado);
+            }
+            Dao usuarioDao = new UsuarioDao();
+            List<Usuario> lista = usuarioDao.getAll();
+            request.setAttribute("lista_usuarios", lista);
+            rd = request.getRequestDispatcher("/vista/administrador/lista_usuarios.jsp");
+            rd.forward(request, response);
+        } else {
+            rd = request.getRequestDispatcher("/vista/administrador/crear_usuario.jsp");
+            rd.forward(request, response);
+        }
+
     }
 
     /**

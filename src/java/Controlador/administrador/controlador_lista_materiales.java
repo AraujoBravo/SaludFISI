@@ -5,8 +5,12 @@
  */
 package Controlador.administrador;
 
+import com.mycompany.dao.Dao;
+import com.mycompany.dao.MaterialDao;
+import com.mycompany.models.Material;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -60,6 +64,9 @@ public class controlador_lista_materiales extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         RequestDispatcher rd;
+        Dao materialDao = new MaterialDao();
+        List<Material> lista = materialDao.getAll();
+        request.setAttribute("lista_materiales", lista);
         rd = request.getRequestDispatcher("/vista/administrador/lista_materiales.jsp");
         rd.forward(request, response);
     }
