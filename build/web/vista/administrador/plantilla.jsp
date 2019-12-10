@@ -37,35 +37,35 @@
                     <ul class="nav navbar-nav">
                         <li class="menu-title">Usuarios</li><!-- /.menu-title -->
                         <li class="active">
-                            <a href="/Observer/CargarVistaMaestro"><i class="menu-icon fa fa-check"></i>Lista de usuarios</a>
+                            <a href="/Observer/CargarVistaMaestro"><i class="menu-icon fa fa-user"></i>Lista de usuarios</a>
                         </li>
                         <li>
-                            <a href="/Observer/CargarVistaMaestro"><i class="menu-icon fa fa-check"></i>Crear usuario</a>
+                            <a href="/Observer/CargarVistaMaestro"><i class="menu-icon fa fa-user-plus"></i>Crear usuario</a>
                         </li>
 
                         <li class="menu-title">Materiales</li><!-- /.menu-title -->
                         <li>
-                            <a href="/Observer/CargarVistaMaestro"><i class="menu-icon fa fa-check"></i>Lista de materiales</a>
+                            <a href="/Observer/CargarVistaMaestro"><i class="menu-icon fa fa-folder"></i>Lista de materiales</a>
                         </li>
                         <li>
-                            <a href="/Observer/CargarVistaMaestro"><i class="menu-icon fa fa-check"></i>Crear material</a>
+                            <a href="/Observer/CargarVistaMaestro"><i class="menu-icon fa fa-plus-square"></i>Crear material</a>
                         </li>
                         <li class="menu-title">Tareas</li><!-- /.menu-title -->
                         <li>
-                            <a href="/Observer/CargarVistaMaestro"><i class="menu-icon fa fa-check"></i>Lista de tareas</a>
+                            <a href="/Observer/CargarVistaMaestro"><i class="menu-icon fa fa-briefcase"></i>Lista de tareas</a>
                         </li>
                         <li>
-                            <a href="/Observer/CargarVistaMaestro"><i class="menu-icon fa fa-check"></i>Crear tarea</a>
+                            <a href="/Observer/CargarVistaMaestro"><i class="menu-icon fa fa-plus-square-o"></i>Crear tarea</a>
                         </li>
                         <li>
                             <a href="/Observer/CargarVistaMaestro"><i class="menu-icon fa fa-check"></i>Evaluar tarea</a>
                         </li>
                         <li class="menu-title">Incidencias</li><!-- /.menu-title -->
                         <li>
-                            <a href="/Observer/CargarVistaMaestro"><i class="menu-icon fa fa-check"></i>Incidencias tarea</a>
+                            <a href="/Observer/CargarVistaMaestro"><i class="menu-icon fa fa-wrench"></i>Incidencias tarea</a>
                         </li>
                         <li>
-                            <a href="/Observer/CargarVistaMaestro"><i class="menu-icon fa fa-check"></i>Incidencias salud</a>
+                            <a href="/Observer/CargarVistaMaestro"><i class="menu-icon fa fa-medkit"></i>Incidencias salud</a>
                         </li>
                     </ul>
                 </div><!-- /.navbar-collapse -->

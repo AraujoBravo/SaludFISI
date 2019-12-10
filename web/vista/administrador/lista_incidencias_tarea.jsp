@@ -36,36 +36,36 @@
                 <div id="main-menu" class="main-menu collapse navbar-collapse">
                     <ul class="nav navbar-nav">
                         <li class="menu-title">Usuarios</li><!-- /.menu-title -->
-                        <li class="active">
-                            <a href="/Observer/CargarVistaMaestro"><i class="menu-icon fa fa-user"></i>Lista de usuarios</a>
+                        <li>
+                            <a href="/ProyectoPatrones/controlador_lista_usuarios"><i class="menu-icon fa fa-user"></i>Lista de usuarios</a>
                         </li>
                         <li>
-                            <a href="/Observer/CargarVistaMaestro"><i class="menu-icon fa fa-user-plus"></i>Crear usuario</a>
+                            <a href="/ProyectoPatrones/controlador_crear_usuario"><i class="menu-icon fa fa-user-plus"></i>Crear usuario</a>
                         </li>
 
                         <li class="menu-title">Materiales</li><!-- /.menu-title -->
                         <li>
-                            <a href="/Observer/CargarVistaMaestro"><i class="menu-icon fa fa-folder"></i>Lista de materiales</a>
+                            <a href="/ProyectoPatrones/controlador_lista_materiales"><i class="menu-icon fa fa-folder"></i>Lista de materiales</a>
                         </li>
                         <li>
-                            <a href="/Observer/CargarVistaMaestro"><i class="menu-icon fa fa-plus-square"></i>Crear material</a>
+                            <a href="/ProyectoPatrones/controlador_crear_material"><i class="menu-icon fa fa-plus-square"></i>Crear material</a>
                         </li>
                         <li class="menu-title">Tareas</li><!-- /.menu-title -->
                         <li>
-                            <a href="/Observer/CargarVistaMaestro"><i class="menu-icon fa fa-briefcase"></i>Lista de tareas</a>
+                            <a href="/ProyectoPatrones/controlador_lista_tareas"><i class="menu-icon fa fa-briefcase"></i>Lista de tareas</a>
                         </li>
                         <li>
-                            <a href="/Observer/CargarVistaMaestro"><i class="menu-icon fa fa-plus-square-o"></i>Crear tarea</a>
+                            <a href="/ProyectoPatrones/controlador_crear_tarea"><i class="menu-icon fa fa-plus-square-o"></i>Crear tarea</a>
                         </li>
                         <li>
-                            <a href="/Observer/CargarVistaMaestro"><i class="menu-icon fa fa-check"></i>Evaluar tarea</a>
+                            <a href="/ProyectoPatrones/controlador_evaluar_tarea"><i class="menu-icon fa fa-check"></i>Evaluar tarea</a>
                         </li>
                         <li class="menu-title">Incidencias</li><!-- /.menu-title -->
-                        <li>
-                            <a href="/Observer/CargarVistaMaestro"><i class="menu-icon fa fa-wrench"></i>Incidencias tarea</a>
+                        <li class="active">
+                            <a href="/ProyectoPatrones/controlador_lista_incidencias_tarea"><i class="menu-icon fa fa-wrench"></i>Incidencias tarea</a>
                         </li>
                         <li>
-                            <a href="/Observer/CargarVistaMaestro"><i class="menu-icon fa fa-medkit"></i>Incidencias salud</a>
+                            <a href="/ProyectoPatrones/controlador_lista_incidencias_salud"><i class="menu-icon fa fa-medkit"></i>Incidencias salud</a>
                         </li>
                     </ul>
                 </div><!-- /.navbar-collapse -->

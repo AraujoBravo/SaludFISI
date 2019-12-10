@@ -3,15 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group name="Patrones de software">
-            <file>file:/D:/JuanEAB/Documents/Carpeta%20de%20Trabajo/Programación/NetBeans/UNMSM/Patrones%20de%20software/PoyectoPatrones/src/java/Controlador/CargarVistaAlumno.java</file>
-            <file>file:/D:/JuanEAB/Documents/Carpeta%20de%20Trabajo/Programación/NetBeans/UNMSM/Patrones%20de%20software/PoyectoPatrones/web/vista/VistaMaestro.jsp</file>
-            <file>file:/D:/JuanEAB/Documents/Carpeta%20de%20Trabajo/Programación/NetBeans/UNMSM/Patrones%20de%20software/PoyectoPatrones/src/java/Core/business/MaestroObservado.java</file>
+            <file>file:/D:/JuanEAB/Documents/Carpeta%20de%20Trabajo/Programación/NetBeans/UNMSM/Patrones%20de%20software/PoyectoPatrones/web/vista/administrador/lista_incidencias_tarea.jsp</file>
+            <file>file:/D:/JuanEAB/Documents/Carpeta%20de%20Trabajo/Programación/NetBeans/UNMSM/Patrones%20de%20software/PoyectoPatrones/web/vista/administrador/lista_tareas.jsp</file>
+            <file>file:/D:/JuanEAB/Documents/Carpeta%20de%20Trabajo/Programación/NetBeans/UNMSM/Patrones%20de%20software/PoyectoPatrones/web/vista/administrador/crear_usuario.jsp</file>
+            <file>file:/D:/JuanEAB/Documents/Carpeta%20de%20Trabajo/Programación/NetBeans/UNMSM/Patrones%20de%20software/PoyectoPatrones/web/vista/administrador/lista_usuarios.jsp</file>
+            <file>file:/D:/JuanEAB/Documents/Carpeta%20de%20Trabajo/Programación/NetBeans/UNMSM/Patrones%20de%20software/PoyectoPatrones/web/vista/administrador/lista_incidencias_salud.jsp</file>
+            <file>file:/D:/JuanEAB/Documents/Carpeta%20de%20Trabajo/Programación/NetBeans/UNMSM/Patrones%20de%20software/PoyectoPatrones/web/vista/administrador/crear_tarea.jsp</file>
+            <file>file:/D:/JuanEAB/Documents/Carpeta%20de%20Trabajo/Programación/NetBeans/UNMSM/Patrones%20de%20software/PoyectoPatrones/web/vista/administrador/crear_material.jsp</file>
             <file>file:/D:/JuanEAB/Documents/Carpeta%20de%20Trabajo/Programación/NetBeans/UNMSM/Patrones%20de%20software/PoyectoPatrones/web/vista/administrador/plantilla.jsp</file>
-            <file>file:/D:/JuanEAB/Documents/Carpeta%20de%20Trabajo/Programación/NetBeans/UNMSM/Patrones%20de%20software/PoyectoPatrones/src/java/Core/business/IObservado.java</file>
-            <file>file:/D:/JuanEAB/Documents/Carpeta%20de%20Trabajo/Programación/NetBeans/UNMSM/Patrones%20de%20software/PoyectoPatrones/web/tables-basic.html</file>
-            <file>file:/D:/JuanEAB/Documents/Carpeta%20de%20Trabajo/Programación/NetBeans/UNMSM/Patrones%20de%20software/PoyectoPatrones/src/java/Controlador/CargarVistaMaestro.java</file>
-            <file>file:/D:/JuanEAB/Documents/Carpeta%20de%20Trabajo/Programación/NetBeans/UNMSM/Patrones%20de%20software/PoyectoPatrones/web/charts-chartjs.html</file>
-            <file>file:/D:/JuanEAB/Documents/Carpeta%20de%20Trabajo/Programación/NetBeans/UNMSM/Patrones%20de%20software/PoyectoPatrones/src/java/Core/business/IObservador.java</file>
+            <file>file:/D:/JuanEAB/Documents/Carpeta%20de%20Trabajo/Programación/NetBeans/UNMSM/Patrones%20de%20software/PoyectoPatrones/web/vista/administrador/lista_materiales.jsp</file>
+            <file>file:/D:/JuanEAB/Documents/Carpeta%20de%20Trabajo/Programación/NetBeans/UNMSM/Patrones%20de%20software/PoyectoPatrones/web/vista/administrador/evaluar_tarea.jsp</file>
+            <file>file:/D:/JuanEAB/Documents/Carpeta%20de%20Trabajo/Programación/NetBeans/UNMSM/Patrones%20de%20software/PoyectoPatrones/src/java/Controlador/administrador/cargarPlantilla.java</file>
         </group>
     </open-files>
 </project-private>
