@@ -17,6 +17,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -42,7 +43,7 @@ public class controlador_login extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet controlador_login</title>");            
+            out.println("<title>Servlet controlador_login</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet controlador_login at " + request.getContextPath() + "</h1>");
@@ -64,7 +65,6 @@ public class controlador_login extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         RequestDispatcher rd;
-        
         rd = request.getRequestDispatcher("/vista/sesion/login.jsp");
         rd.forward(request, response);
     }
@@ -81,15 +81,26 @@ public class controlador_login extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         RequestDispatcher rd;
-        Dao usuarioDao = new UsuarioDao();        
-        List<Usuario> lista = usuarioDao.getAll();
-        request.setAttribute("lista_usuarios", lista);
-        for (Usuario user : lista) {
-            System.out.println("nombrex"+user.getFirstname()+" id: "+user.getEmail());
-            
+        UsuarioDao usuarioDao = new UsuarioDao();
+        String email = request.getParameter("email");
+        String password = request.getParameter("password");
+        Usuario user_logeado = usuarioDao.login(email, password);
+        if (user_logeado.getTipo_cuenta() == null) {
+            rd = request.getRequestDispatcher("/vista/sesion/login.jsp");
+            rd.forward(request, response);
+        } else {
+            HttpSession session = request.getSession(true);
+            request.getSession().setAttribute("usuario_registrado", user_logeado);
+            if (user_logeado.getTipo_cuenta().equals("administrativo")) {
+                List<Usuario> lista = usuarioDao.getAll();
+                request.setAttribute("lista_usuarios", lista);
+                rd = request.getRequestDispatcher("/vista/administrador/lista_usuarios.jsp");
+                rd.forward(request, response);
+            } else if (user_logeado.getTipo_cuenta().equals("empleado")) {
+                rd = request.getRequestDispatcher("/vista/empleado/lista_tareas.jsp");
+                rd.forward(request, response);
+            }
         }
-        rd = request.getRequestDispatcher("/vista/administrador/lista_usuarios.jsp");
-        rd.forward(request, response);
     }
 
     /**

@@ -22,7 +22,38 @@ import java.util.List;
  */
 public class UsuarioDao implements Dao<Usuario> {
     
+    public Usuario login(String email, String password){
+        Usuario user = new Usuario();
+        String pa = "{call login(?,?)}";
+        Connection cn = DBAccess.getInstance().getConnection();
+        if (cn != null) {
+            try {
+                CallableStatement cs = cn.prepareCall(pa);
+                cs.setString(1, email);
+                cs.setString(2, password);
+                System.out.println(email+" "+password);
+                ResultSet rs = cs.executeQuery();
+                if (rs.next()) {
+                    user.setIdUser(rs.getInt("id"));
+                    System.out.println("respuesta"+rs.getInt("id") );
+                    user.setFirstname(rs.getString("firstname"));                    
+                    user.setLastname(rs.getString("lastname"));    
+                    user.setEmail(rs.getString("email"));
+                    user.setDni(rs.getInt("dni"));
+                    user.setDireccion(rs.getString("direccion"));
+                    user.setTipo_cuenta(rs.getString("tipo_cuenta"));
 
+                }
+            } catch (SQLException ex) {
+            } finally {
+                try {
+                    cn.close();
+                } catch (SQLException e) {
+                }
+            }
+        }
+        return user;
+    }
     @Override
     public void save(Usuario t) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

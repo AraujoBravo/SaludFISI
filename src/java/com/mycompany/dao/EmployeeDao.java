@@ -94,7 +94,7 @@ public class EmployeeDao implements Dao<Employee> {
     @Override
     public void save(Employee t) {
         Connection cn = DBAccess.getInstance().getConnection();
-        String pa = "{call saveEmploye(?,?,?,?,?,?,?,?,?)}";
+        String pa = "{call saveEmployee(?,?,?,?,?,?)}";
         if (cn != null) {
             try {
                 CallableStatement cs = cn.prepareCall(pa);
@@ -102,8 +102,8 @@ public class EmployeeDao implements Dao<Employee> {
                 cs.setString(2, t.getLastname());
                 cs.setString(3, t.getPassword());
                 cs.setString(4, t.getEmail());
-                cs.setString(8, String.valueOf(t.getDni()));
-                cs.setString(9, t.getDireccion());
+                cs.setString(5, String.valueOf(t.getDni()));
+                cs.setString(6, t.getDireccion());
                 cs.executeUpdate();
             } catch (SQLException e) {
 
