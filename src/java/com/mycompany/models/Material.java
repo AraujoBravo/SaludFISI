@@ -13,6 +13,8 @@ public class Material {
     private Integer idMaterial;
     private String titleMaterial;
     private String description;
+    
+    public Material(){}
     public Material(Integer idMaterial, String titleMaterial, String description){
         this.idMaterial = idMaterial;
         this.description = description;

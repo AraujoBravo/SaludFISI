@@ -62,10 +62,10 @@
                         </li>
                         <li class="menu-title">Incidencias</li><!-- /.menu-title -->
                         <li>
-                            <a href="/ProyectoPatrones/controlador_lista_incidencias_tarea"><i class="menu-icon fa fa-wrench"></i>Incidencias tarea</a>
+                            <a href="/ProyectoPatrones/controlador_lista_incidencias_tarea"><i class="menu-icon fa fa-wrench"></i>Incidencias en tarea</a>
                         </li>
                         <li>
-                            <a href="/ProyectoPatrones/controlador_lista_incidencias_salud"><i class="menu-icon fa fa-medkit"></i>Incidencias salud</a>
+                            <a href="/ProyectoPatrones/controlador_lista_incidencias_salud"><i class="menu-icon fa fa-medkit"></i>Incidencias en salud</a>
                         </li>
                     </ul>
                 </div><!-- /.navbar-collapse -->

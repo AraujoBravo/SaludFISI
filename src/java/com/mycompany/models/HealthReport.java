@@ -5,6 +5,8 @@
  */
 package com.mycompany.models;
 
+import java.sql.Date;
+
 /**
  *
  * @author JuanEAB
@@ -13,7 +15,10 @@ public class HealthReport {
     private Integer idHealthReport;
     private String description;
     private String titleHealthReport;
+    private Date date;
     private Integer idEmployee;
+    
+    public HealthReport(){}
     public HealthReport(Integer idHealthReport, String title, String description, Integer idEmployee){
         this.idHealthReport = idHealthReport;
         this.idEmployee = idEmployee;
@@ -50,6 +55,14 @@ public class HealthReport {
 
     public void setIdEmployee(Integer idEmployee) {
         this.idEmployee = idEmployee;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
     }
     
     

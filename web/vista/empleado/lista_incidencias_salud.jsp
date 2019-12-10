@@ -1,4 +1,11 @@
-<!doctype html>
+<%-- 
+    Document   : lista_inicidencias_salud
+    Created on : 10/12/2019, 04:14:58 AM
+    Author     : JuanEAB
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
@@ -35,37 +42,16 @@
 
                 <div id="main-menu" class="main-menu collapse navbar-collapse">
                     <ul class="nav navbar-nav">
-                        <li class="menu-title">Usuarios</li><!-- /.menu-title -->
+                        <li class="menu-title">Mis Tareas</li><!-- /.menu-title -->
                         <li>
-                            <a href="/ProyectoPatrones/controlador_lista_usuarios"><i class="menu-icon fa fa-user"></i>Lista de usuarios</a>
+                            <a href="/ProyectoPatrones/controlador_empleado_lista_tareas"><i class="menu-icon fa fa-briefcase"></i>Lista de tareas</a>
                         </li>
+                        <li class="menu-title">Mis Incidencias</li><!-- /.menu-title -->
                         <li>
-                            <a href="/ProyectoPatrones/controlador_crear_usuario"><i class="menu-icon fa fa-user-plus"></i>Crear usuario</a>
-                        </li>
-
-                        <li class="menu-title">Materiales</li><!-- /.menu-title -->
-                        <li>
-                            <a href="/ProyectoPatrones/controlador_lista_materiales"><i class="menu-icon fa fa-folder"></i>Lista de materiales</a>
-                        </li>
-                        <li>
-                            <a href="/ProyectoPatrones/controlador_crear_material"><i class="menu-icon fa fa-plus-square"></i>Crear material</a>
-                        </li>
-                        <li class="menu-title">Tareas</li><!-- /.menu-title -->
-                        <li>
-                            <a href="/ProyectoPatrones/controlador_lista_tareas"><i class="menu-icon fa fa-briefcase"></i>Lista de tareas</a>
-                        </li>
-                        <li>
-                            <a href="/ProyectoPatrones/controlador_crear_tarea"><i class="menu-icon fa fa-plus-square-o"></i>Crear tarea</a>
+                            <a href="/ProyectoPatrones/controlador_empleado_lista_incidencias_tarea"><i class="menu-icon fa fa-wrench"></i>Incidencias en tarea</a>
                         </li>
                         <li class="active">
-                            <a href="/ProyectoPatrones/controlador_evaluar_tarea"><i class="menu-icon fa fa-check"></i>Evaluar tarea</a>
-                        </li>
-                        <li class="menu-title">Incidencias</li><!-- /.menu-title -->
-                        <li>
-                            <a href="/ProyectoPatrones/controlador_lista_incidencias_tarea"><i class="menu-icon fa fa-wrench"></i>Incidencias en tarea</a>
-                        </li>
-                        <li>
-                            <a href="/ProyectoPatrones/controlador_lista_incidencias_salud"><i class="menu-icon fa fa-medkit"></i>Incidencias en salud</a>
+                            <a href="/ProyectoPatrones/controlador_empleado_lista_incidencias_salud"><i class="menu-icon fa fa-medkit"></i>Incidencias en salud</a>
                         </li>
                     </ul>
                 </div><!-- /.navbar-collapse -->
